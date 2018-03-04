@@ -1,16 +1,779 @@
 <template>
-    <h1>Hello, world!</h1>
-    <p>Welcome to your new single-page application, built with:</p>
-    <ul>
-        <li><a href="https://get.asp.net/">ASP.NET Core</a> and <a href="https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx">C#</a> for cross-platform server-side code</li>
-        <li><a href="http://aurelia.io/">Aurelia</a> and <a href="http://www.typescriptlang.org/">TypeScript</a> for client-side code</li>
-        <li><a href="https://webpack.github.io/">Webpack</a> for building and bundling client-side resources</li>
-        <li><a href="http://getbootstrap.com/">Bootstrap</a> for layout and styling</li>
-    </ul>
-    <p>To help you get started, we've also set up:</p>
-    <ul>
-        <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-        <li><strong>Webpack dev middleware</strong>. In development mode, there's no need to run the <code>webpack</code> build tool. Your client-side resources are dynamically built on demand. Updates are available as soon as you modify any file.</li>
-        <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and the <code>webpack</code> build tool produces minified static CSS and JavaScript files.</li>
-    </ul>
+    <h1>Zadanie</h1>
+    
+          <div class=WordSection1>
+
+            <p class=MsoNormal style='margin-top:12.0pt;margin-right:0cm;margin-bottom:
+12.0pt;margin-left:0cm;mso-pagination:widow-orphan lines-together;page-break-after:
+avoid'>
+              
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    Vytvorte 
+                    webovu stranku, ktora bude sluzit pre spravu zamestnancov vo firme. <o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    K
+                    zamestnancovi prisluchaju nasledujuce udaje:<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo1'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Meno - povinny udaj<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo1'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Priezvisko - povinny udaj<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo1'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Adresa - nepovinny udaj<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo1'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Datum narodenia - povinny udaj, datum z minulosti<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo1'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Datum nastupu - povinny udaj, datum z buducnosti alebo aktualny datum<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo1'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Pozicia vo firme - povinny udaj<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo1'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Plat - povinny udaj, desatinne cislo.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    Mozne
+                    pozicie vo firme:<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo2'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Tester<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo2'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Programator<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo2'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Support<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo2'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Analytik<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo2'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Obchodnik<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo2'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Ine<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    Pomocou
+                    stranky ma byt pouzivnbatel schopny:<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo3'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Zobrazit si zoznam aktualnych zamestnancov.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo3'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Zobrazit si zoznam predoslych zamestnancov.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo3'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>
+                    Zobrazit si detail konkretneho zamestnanca. Tento detail sa zobrazi
+                    vyberom konkretneho zamestnanca zo zoznamu zamestnancov.<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo3'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Vytvorit noveho zamestnanca.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo3'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Zmazat aktualneho zamestnanca.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo3'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Zobrazit zoznam pozicii vo firme.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo3'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Vytvorit novu poziciu.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo3'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Zmazat poziciu.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-top:12.0pt;margin-right:0cm;margin-bottom:
+12.0pt;margin-left:0cm;mso-pagination:widow-orphan lines-together;page-break-after:
+avoid'>
+                <span style='font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:"Calibri Light","sans-serif";mso-fareast-font-family:"Calibri Light";
+color:#2E74B5'>Ako ma stranka vyzerat<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    Stranka ma
+                    mat tri navigacne tlacidla (umiestnene v hornej casti). Jedno bude sluzit na
+                    zobrazenie zoznamu aktualnych zamestnancov, druhe na zobrazenie zoznamu
+                    predoslych zamestnancov a tretie na zobrazenie zoznamu pozicii vo firme. <o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal>
+                <b style='mso-bidi-font-weight:normal'>
+                    <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                        Zoznam aktualnych
+                        zamestnancov ma mat nasledujuce stlpce:
+                    </span>
+                </b><span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri'><o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo4'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>
+                    Meno - vznikne spojenim mena a priezviska zamestnanca. Po kliknuti na
+                    meno zamestnanca sa zobrazi obrazovka, na ktorej budu aktualne udaje
+                    zamestnanca bez moznosti ich editacie.<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo4'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Aktualna pozicia<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo4'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>
+                    V tretom stlpci bude tlacidlo pre editovanie udajov zamestnanca. Po
+                    jeho stlaceni sa zobrazi obrazovka, na ktorej budu aktualne udaje zamestnanca s
+                    moznostou ich editacie. Pozicia zamestnanca sa bude vyberat skrz dropdown
+                    element. Na obrazovke sa bude nachadzat aj zoznam predoslych pozicii
+                    zamestnanca spolu s datumovym ohranicenim (kedy na danu poziciu nastupil a
+                    dokedy na danej pozicii pracoval). Editovanie zoznamu predoslych pozicii nebude
+                    povolene. V dolnej casti tejto obrazovky bude tlacidlo na ulozenie zmien. <o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo4'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Vo stvrtom stlpci bude tlacidlo pre zmazanie zamestnanca.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    Obrazovka,
+                    na ktorej sa nachadza zoznam zamestnancov, bude obsahovat jedno globalne
+                    tlacidlo pre pridanie noveho zamestnanca. Po jeho stlaceni sa zobrazi rovnaka
+                    obrazovka ako pri zmene udajov existujuceho zamestnanca. Datum nastupu ma byt
+                    automaticky vyplneny na dnesny den (ale s moznostou manualnej zmeny). <o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    Pred
+                    zmazanim zamestnanca sa aplikacia spyta, ci ma zamestnanca archivovat.
+                    Archivovani zamestnanci sa budu zobrazovat v zozname predoslych zamestnancov.<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal>
+                <b style='mso-bidi-font-weight:normal'>
+                    <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                        Zoznam predoslych
+                        zamestnancov ma mat nasledujuce stlpce:
+                    </span>
+                </b><span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri'><o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo5'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>
+                    Meno - vznikne spojenim mena a priezviska zamestnanca. Po kliknuti na
+                    meno zamestnanca sa zobrazi obrazovka, na ktorej budu zobrazene aktualne udaje
+                    zamestnanca bez moznosti ich editacie.<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo5'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Posledna pozicia vo firme.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo5'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Datum zmazania (prepustenia) zamestnanca.<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo5'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>
+                    Vo stvrtom stlpci bude tlacidlo pre trvale zmazanie zamestnanca zo
+                    systemu. Trvalemu zmazaniu zamestnanca musi predchadzat potvrdenie akcie
+                    pouzivatelom (aplikacia saa spyta, ci skutocne trvalo zmazat zamestnanca).<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span>
+            </p>
+
+            <p class=MsoNormal>
+                <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    Zamestnhanci
+                    a pozicie musia byt evidovani na serveri. Data budu ulozene v SQL databaze
+                    lubovolneho
+                </span><span class=SpellE>
+                    <span lang=EN-GB style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;mso-ansi-language:EN-GB'>typu</span>
+                </span><span lang=EN-GB style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-GB'>
+                    . <span class=SpellE>Mozeme</span> <span class=SpellE>predpokladat</span>,
+                    <span class=SpellE>ze</span> <span class=SpellE>vzdy</span> <span class=SpellE>bude</span>
+                    <span class=SpellE>existovat</span> <span class=SpellE>len</span> <span class=SpellE>jeden</span> <span class=SpellE>klient</span>. <o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-top:12.0pt;margin-right:0cm;margin-bottom:
+12.0pt;margin-left:0cm;mso-pagination:widow-orphan lines-together;page-break-after:
+avoid'>
+                <span style='font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:"Calibri Light","sans-serif";mso-fareast-font-family:"Calibri Light";
+color:#2E74B5'>Vyzadovane technologie<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo6'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Klient<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo6'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Aurelia (</span><a href="http://aurelia.io/">
+                    <span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;color:#0563C1'>http://aurelia.io/</span>
+                </a><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    ,<span style='mso-spacerun:yes'></span>starter kity -
+                </span><a href="https://github.com/aurelia/skeleton-navigation">
+                    <span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;color:blue'>https://github.com/aurelia/skeleton-navigation</span>
+                </a><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:blue'>,</span><a href="https://aureliacasts.com">
+                    <span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>https://aureliacasts.com</span>
+                </a><span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri'>
+                    )<br>
+                    ALEBO<br>
+                    Durandal (
+                </span><a href="http://durandaljs.com/">
+                    <span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri;color:blue'>http://durandaljs.com/</span>
+                </a><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    ) v&nbsp;kombinacii
+                    s&nbsp;KnockoutJS (
+                </span><a href="http://knockoutjs.com/">
+                    <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:#0563C1'>http://knockoutjs.com/</span>
+                </a><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>)<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo6'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>SASS, LESS alebo CSS<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo6'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Typescript<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo6'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Server<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo6'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>ASP.NET Web API 2 alebo ASP.NET Core Web API<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo6'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Databaza<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo6'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>SQL<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-top:12.0pt;margin-right:0cm;margin-bottom:
+12.0pt;margin-left:0cm;mso-pagination:widow-orphan lines-together;page-break-after:
+avoid'>
+                <span style='font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:
+107%;font-family:"Calibri Light","sans-serif";mso-fareast-font-family:"Calibri Light";
+color:#2E74B5'>Co studovat<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>REST API<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>ASP.NET Web API 2<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>SPA (</span><a href="https://en.wikipedia.org/wiki/Single-page_application">
+                    <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:blue'>https://en.wikipedia.org/wiki/Single-page_application</span>
+                </a><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>)<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>
+                    Aurelia<br>
+                    alebo<br>
+                    Durandal + KnockoutJS<o:p></o:p>
+                </span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>SASS, LESS alebo CSS<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7'>
+                <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                    <span style='mso-list:Ignore'>
+                        •<span style='font:7.0pt "Times New Roman"'>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </span>
+                </span><![endif]><span style='mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri'>Typescript<o:p></o:p></span>
+            </p>
+
+            <p class=MsoNormal style='margin-left:36.0pt'>
+                <span style='mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;
+mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span>
+            </p>
+
+        </div>
+
+    
 </template>

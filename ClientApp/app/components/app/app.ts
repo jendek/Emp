@@ -12,21 +12,28 @@ export class App {
             settings: { icon: 'home' },
             moduleId: PLATFORM.moduleName('../home/home'),
             nav: true,
-            title: 'Home'
+            title: 'Zadanie'
         }, {
             route: 'counter',
             name: 'counter',
             settings: { icon: 'education' },
             moduleId: PLATFORM.moduleName('../counter/counter'),
             nav: true,
-            title: 'Counter'
+            title: 'Aktualni zamestnanci'
         }, {
             route: 'fetch-data',
             name: 'fetchdata',
             settings: { icon: 'th-list' },
             moduleId: PLATFORM.moduleName('../fetchdata/fetchdata'),
             nav: true,
-            title: 'Fetch data'
+            title: 'Predosli zamestnanci'
+        }, {
+            route: 'counter2',
+            name: 'counter2',
+            settings: { icon: 'education' },
+            moduleId: PLATFORM.moduleName('../counter/counter'),
+            nav: true,
+            title: 'Pozicie vo firme'
         }]);
 
         this.router = router;
