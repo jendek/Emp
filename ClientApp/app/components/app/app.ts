@@ -8,29 +8,29 @@ export class App {
         config.title = 'Emp';
         config.map([{
             route: [ '', 'home' ],
-            name: 'home',
-            settings: { icon: 'home' },
+            name: 'zadanie',
+            settings: { icon: 'education' },
             moduleId: PLATFORM.moduleName('../home/home'),
             nav: true,
             title: 'Zadanie'
         }, {
-            route: 'counter',
-            name: 'counter',
-            settings: { icon: 'education' },
+            route: 'aktualniZamestnanci',
+            name: 'aktualniZamestnanci',
+            settings: { icon: 'th-list' },
             moduleId: PLATFORM.moduleName('../counter/counter'),
             nav: true,
             title: 'Aktualni zamestnanci'
         }, {
-            route: 'fetch-data',
-            name: 'fetchdata',
+            route: 'predosliZamestnanci',
+            name: 'predosliZamestnanci',
             settings: { icon: 'th-list' },
             moduleId: PLATFORM.moduleName('../fetchdata/fetchdata'),
             nav: true,
             title: 'Predosli zamestnanci'
         }, {
-            route: 'counter2',
-            name: 'counter2',
-            settings: { icon: 'education' },
+                route: 'pozicie',
+            name: 'pozicie',
+            settings: { icon: 'th-list' },
             moduleId: PLATFORM.moduleName('../counter/counter'),
             nav: true,
             title: 'Pozicie vo firme'
