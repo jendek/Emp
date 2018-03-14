@@ -13,21 +13,21 @@ namespace Emp.Migrations
                 name: "Pozicie",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    PoziciaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Nazov = table.Column<string>(nullable: false),
                     Vymazana = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pozicie", x => x.Id);
+                    table.PrimaryKey("PK_Pozicie", x => x.PoziciaID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Zamestnanci",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ZamestnanecID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Adresa = table.Column<string>(nullable: true),
                     DatumNarodenia = table.Column<DateTime>(nullable: false),
@@ -36,47 +36,47 @@ namespace Emp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Zamestnanci", x => x.Id);
+                    table.PrimaryKey("PK_Zamestnanci", x => x.ZamestnanecID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "EvidenciaZamestnancov",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    EvidenciaZamestnancaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DatumNastupu = table.Column<DateTime>(nullable: false),
                     DatumUkoncenia = table.Column<DateTime>(nullable: true),
                     Plat = table.Column<float>(nullable: false),
-                    PoziciaId = table.Column<int>(nullable: false),
-                    ZamestnanecId = table.Column<int>(nullable: false)
+                    PoziciaID = table.Column<int>(nullable: false),
+                    ZamestnanecID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EvidenciaZamestnancov", x => x.Id);
+                    table.PrimaryKey("PK_EvidenciaZamestnancov", x => x.EvidenciaZamestnancaID);
                     table.ForeignKey(
-                        name: "FK_EvidenciaZamestnancov_Pozicie_PoziciaId",
-                        column: x => x.PoziciaId,
+                        name: "FK_EvidenciaZamestnancov_Pozicie_PoziciaID",
+                        column: x => x.PoziciaID,
                         principalTable: "Pozicie",
-                        principalColumn: "Id",
+                        principalColumn: "PoziciaID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EvidenciaZamestnancov_Zamestnanci_ZamestnanecId",
-                        column: x => x.ZamestnanecId,
+                        name: "FK_EvidenciaZamestnancov_Zamestnanci_ZamestnanecID",
+                        column: x => x.ZamestnanecID,
                         principalTable: "Zamestnanci",
-                        principalColumn: "Id",
+                        principalColumn: "ZamestnanecID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EvidenciaZamestnancov_PoziciaId",
+                name: "IX_EvidenciaZamestnancov_PoziciaID",
                 table: "EvidenciaZamestnancov",
-                column: "PoziciaId");
+                column: "PoziciaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EvidenciaZamestnancov_ZamestnanecId",
+                name: "IX_EvidenciaZamestnancov_ZamestnanecID",
                 table: "EvidenciaZamestnancov",
-                column: "ZamestnanecId");
+                column: "ZamestnanecID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -1,0 +1,24 @@
+﻿<template>
+    <h1>Prehľad predchádzajúcich zamestnancov</h1>
+
+    <p if.bind="!evidenciaZamestnancov"><em>Loading...</em></p>
+
+    <table if.bind="evidenciaZamestnancov" class="table">
+        <thead>
+            <tr>
+                <th>Meno</th>
+                <th>Posledná pozícia</th>
+                <th>Dátum prepustenia</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="EvidenciaZamestnanca of evidenciaZamestnancov" click.delegate="onSelectMeno($event, zamestnanecID)">
+                <td style="cursor: pointer;">${ EvidenciaZamestnanca.zamestnanec.meno + " " + EvidenciaZamestnanca.zamestnanec.priezvisko }</td>
+                <td>${ EvidenciaZamestnanca.pozicia.nazov }</td>
+                <td>${ EvidenciaZamestnanca.datumUkoncenia }</td>
+                <td><button type="button">Zmazať</button></td>
+            </tr>
+        </tbody>
+    </table>
+</template>

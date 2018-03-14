@@ -1,0 +1,64 @@
+﻿<template>
+    <h1>IDE TO ?</h1>
+    <span>Meno:  </span>
+    <input type="text" value.bind="zamestnanec.meno">
+    <p>Priezvisko: ${zamestnanec.priezvisko}</p>
+    <p>: ${zamestnanec.}</p>
+
+
+    <!--<div>
+        ID: ${zamestnanecInfo[0].zamestnanec.id}
+    </div>
+    <div>
+        Height: ${zamestnanec.height}
+    </div>
+    <div>
+        Weight: ${zamestnanec.weight}
+    </div>
+    <div>
+        Product Series: ${zamestnanec.productSeries}
+    </div>
+    <div>
+        Imperial Contract: ${zamestnanec.imperialContractId}
+    </div>
+    <div show.bind="zamestnanec.equipment.length>0">
+        Equipment:
+        <ul>
+            <li repeat.for="item of zamestnanec.equipment">
+                ${item}
+            </li>
+        </ul>
+    </div>
+    <div show.bind="zamestnanec.armaments.length>0">
+        Armaments:
+        <ul>
+            <li repeat.for="item of zamestnanec.armaments">
+                ${item}
+            </li>
+        </ul>
+    </div>-->
+</template>
+<!--<template>
+    <h1>Prehľad predchádzajúcich zamestnancov</h1>
+
+    <p if.bind="!zamestnanecInfo"><em>Loading...</em></p>
+
+    <table if.bind="zamestnanecInfo" class="table">
+        <thead>
+            <tr>
+                <th>Meno</th>
+                <th>Posledná pozícia</th>
+                <th>Dátum prepustenia</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="EvidenciaZamestnanca of zamestnanecInfo" click.delegate="onSelectMeno($event, zamestnanecID)">
+                <td style="cursor: pointer;">${ EvidenciaZamestnanca.zamestnanec.meno + " " + EvidenciaZamestnanca.zamestnanec.priezvisko }</td>
+                <td>${ EvidenciaZamestnanca.pozicia.nazov }</td>
+                <td>${ EvidenciaZamestnanca.datumUkoncenia }</td>
+                <td><button type="button">Zmazať</button></td>
+            </tr>
+        </tbody>
+    </table>
+</template>-->

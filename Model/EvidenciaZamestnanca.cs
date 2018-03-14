@@ -2,16 +2,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Emp.Data.Entity
+namespace Emp.Model
 {
     public class EvidenciaZamestnanca
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int EvidenciaZamestnancaID { get; set; }
 
-        public int ZamestnanecId { get; set; }
+        public int ZamestnanecID { get; set; }
 
-        public int PoziciaId { get; set; }
+        public int PoziciaID { get; set; }
 
         public DateTime DatumNastupu { get; set; }
 
@@ -20,9 +20,9 @@ namespace Emp.Data.Entity
         public float Plat { get; set; }
 
         [Required]
-        public Zamestnanec Zamestnanec { get; set; }
+        public virtual Zamestnanec Zamestnanec { get; set; }
 
         [Required]
-        public Pozicia Pozicia { get; set; }
+        public virtual Pozicia Pozicia { get; set; }
     }
 }

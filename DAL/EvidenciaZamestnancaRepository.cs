@@ -1,15 +1,22 @@
-﻿using Emp.Data;
-using Emp.Data.Entity;
+﻿using Emp.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Emp.Repositories
+namespace Emp.DAL
 {
     public class EvidenciaZamestnancaRepository : Repository<EvidenciaZamestnanca>
     {
         public EvidenciaZamestnancaRepository(EmpDBContext context) : base(context)
         {
+        }
+
+        public IEnumerable<EvidenciaZamestnanca> GetZoznamVsetkychZamestnancov()
+        {
+            return EmpContext.EvidenciaZamestnancov
+                .Include(e => e.Zamestnanec)
+                .Include(e => e.Pozicia)
+                .ToList();
         }
 
         public IEnumerable<EvidenciaZamestnanca> GetZoznamAktualnychZamestnancov()
@@ -36,12 +43,12 @@ namespace Emp.Repositories
                 .ToList();
         }
 
-        public IEnumerable<EvidenciaZamestnanca> GetZaznamyZamestnanca(Zamestnanec zamestnanec)
+        public IEnumerable<EvidenciaZamestnanca> GetZamestnanecInfo(int zamestnanecId)
         {
             return EmpContext.EvidenciaZamestnancov
                 .Include(e => e.Zamestnanec)
                 .Include(e => e.Pozicia)
-                .Where(e => e.Zamestnanec == zamestnanec)
+                .Where(e => e.ZamestnanecID == zamestnanecId)
                 .ToList();
         }
 

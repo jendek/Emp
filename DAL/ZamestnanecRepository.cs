@@ -1,7 +1,6 @@
-﻿using Emp.Data;
-using Emp.Data.Entity;
+﻿using Emp.Model;
 
-namespace Emp.Repositories
+namespace Emp.DAL
 {
     public class ZamestnanecRepository : Repository<Zamestnanec>
     {

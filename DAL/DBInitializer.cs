@@ -1,8 +1,8 @@
-﻿using Emp.Data.Entity;
+﻿using Emp.Model;
 using System;
 using System.Linq;
 
-namespace Emp.Data
+namespace Emp.DAL
 {
     public static class DbInitializer
     {
@@ -47,14 +47,14 @@ namespace Emp.Data
 
             var evidenciaZamestnanca = new EvidenciaZamestnanca[]
             {
-            new EvidenciaZamestnanca{ZamestnanecId=1, PoziciaId = 5, DatumNastupu=DateTime.Parse ("2017-02-03"), DatumUkoncenia=DateTime.Parse ("2017-10-10"), Plat=2500.50f},
-            new EvidenciaZamestnanca{ZamestnanecId=1, PoziciaId = 4, DatumNastupu=DateTime.Parse ("2017-10-10"), DatumUkoncenia=null, Plat=3500.20f},
-            new EvidenciaZamestnanca { ZamestnanecId = 2, PoziciaId = 2, DatumNastupu = DateTime.Parse("2017-09-03"), DatumUkoncenia = DateTime.Parse("2018-01-01"), Plat = 1500.50f },
-            new EvidenciaZamestnanca{ZamestnanecId=3, PoziciaId = 1, DatumNastupu=DateTime.Parse ("2017-02-03"), DatumUkoncenia=null, Plat=2200.60f},
-            new EvidenciaZamestnanca{ZamestnanecId=4, PoziciaId = 2, DatumNastupu=DateTime.Parse ("2016-02-03"), DatumUkoncenia=null, Plat=3700.50f},
-            new EvidenciaZamestnanca{ZamestnanecId=5, PoziciaId = 3, DatumNastupu=DateTime.Parse ("2016-02-03"), DatumUkoncenia=DateTime.Parse ("2017-10-10"), Plat=2500.50f},
-            new EvidenciaZamestnanca{ZamestnanecId=6, PoziciaId = 4, DatumNastupu=DateTime.Parse ("2018-02-01"), DatumUkoncenia=null, Plat=2800.50f},
-            new EvidenciaZamestnanca{ZamestnanecId=7, PoziciaId = 5, DatumNastupu=DateTime.Parse ("2017-12-03"), DatumUkoncenia=null, Plat=2200.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=1, PoziciaID = 5, DatumNastupu=DateTime.Parse ("2017-02-03"), DatumUkoncenia=DateTime.Parse ("2017-10-10"), Plat=2500.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=1, PoziciaID = 4, DatumNastupu=DateTime.Parse ("2017-10-10"), DatumUkoncenia=null, Plat=3500.20f},
+            new EvidenciaZamestnanca { ZamestnanecID = 2, PoziciaID = 2, DatumNastupu = DateTime.Parse("2017-09-03"), DatumUkoncenia = DateTime.Parse("2018-01-01"), Plat = 1500.50f },
+            new EvidenciaZamestnanca{ZamestnanecID=3, PoziciaID = 1, DatumNastupu=DateTime.Parse ("2017-02-03"), DatumUkoncenia=null, Plat=2200.60f},
+            new EvidenciaZamestnanca{ZamestnanecID=4, PoziciaID = 2, DatumNastupu=DateTime.Parse ("2016-02-03"), DatumUkoncenia=null, Plat=3700.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=5, PoziciaID = 3, DatumNastupu=DateTime.Parse ("2016-02-03"), DatumUkoncenia=DateTime.Parse ("2017-10-10"), Plat=2500.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=6, PoziciaID = 4, DatumNastupu=DateTime.Parse ("2018-02-01"), DatumUkoncenia=null, Plat=2800.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=7, PoziciaID = 5, DatumNastupu=DateTime.Parse ("2017-12-03"), DatumUkoncenia=null, Plat=2200.50f},
             };
             foreach (EvidenciaZamestnanca e in evidenciaZamestnanca)
             {

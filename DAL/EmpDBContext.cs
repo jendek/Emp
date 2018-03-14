@@ -1,7 +1,7 @@
-﻿using Emp.Data.Entity;
+﻿using Emp.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Emp.Data
+namespace Emp.DAL
 {
     public class EmpDBContext : DbContext
     {
@@ -13,5 +13,9 @@ namespace Emp.Data
         public DbSet<Zamestnanec> Zamestnanci { get; set; }
         public DbSet<Pozicia> Pozicie { get; set; }
         public DbSet<EvidenciaZamestnanca> EvidenciaZamestnancov { get; set; }
-    } 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
+    }
 }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Emp.Data.Entity
+namespace Emp.Model
 {
     public class Zamestnanec
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ZamestnanecID { get; set; }
 
         [Required]
         public string Meno { get; set; }
@@ -19,8 +19,5 @@ namespace Emp.Data.Entity
         public string Adresa { get; set; }
 
         public DateTime DatumNarodenia { get; set; }
-
-        public ICollection<EvidenciaZamestnanca> EvidenciaZamestnanca { get; set; }
-
     }
 }

@@ -1,7 +1,7 @@
-﻿using Emp.Data;
-using Emp.Data.Entity;
+﻿using Emp.Model;
+using System.Collections.Generic;
 
-namespace Emp.Repositories
+namespace Emp.DAL
 {
     public class PoziciaRepository : Repository<Pozicia>
     {

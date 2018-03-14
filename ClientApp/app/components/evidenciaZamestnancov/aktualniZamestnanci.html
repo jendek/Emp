@@ -1,0 +1,24 @@
+﻿<template>
+    <h1>Prehľad aktuálnych zamestnancov</h1>
+
+    <p if.bind="!evidenciaZamestnancov"><em>Loading...</em></p>
+
+    <table if.bind="evidenciaZamestnancov" class="table">
+        <thead>
+            <tr>
+                <th>Meno</th>
+                <th>Aktuálna pozícia</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="evidenciaZamestnanca of evidenciaZamestnancov" ><!--"--> 
+                <td evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="onClickMeno(evidenciaZamestnanca)" style="cursor: pointer;">${ evidenciaZamestnanca.zamestnanec.meno + " " + evidenciaZamestnanca.zamestnanec.priezvisko }</td>
+                <td>${ evidenciaZamestnanca.pozicia.nazov }</td>
+                <td><button type="button">Editácia</button></td>
+                <td><button type="button">Zmazať</button></td>
+            </tr>
+        </tbody>
+    </table>
+</template>

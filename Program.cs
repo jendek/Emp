@@ -1,4 +1,4 @@
-using Emp.Data;
+using Emp.DAL;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;

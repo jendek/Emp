@@ -2,18 +2,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Emp.Data.Entity
+namespace Emp.Model
 {
     public class Pozicia
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int PoziciaID { get; set; }
 
         [Required]
         public string Nazov { get; set; }
 
         public bool Vymazana { get; set; }
-
-        public ICollection<EvidenciaZamestnanca> EvidenciaZamestnanca { get; set; }
     }
 }
