@@ -18,7 +18,7 @@
     "file-loader": "^0.11.1",
     "html-loader": "^0.4.5",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.2.1",
+    "jquery": "^2.2.4",
     "json-loader": "^0.5.4",
     "jspm": "^0.16.53",
     "style-loader": "^0.16.1",
@@ -28,5 +28,19 @@
     "webpack": "^2.3.3",
     "webpack-hot-middleware": "^2.18.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "moment": "^2.21.0",
+    "numeral": "^2.0.6"
+  },
+  "jspm": {
+    "dependencies": {
+      "@types/numeral": "npm:@types/numeral@^0.0.22",
+      "aurelia-bootstrap": "github:tochoromero/aurelia-bootstrap@^0.1.20"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
 }

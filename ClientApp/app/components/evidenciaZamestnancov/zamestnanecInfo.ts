@@ -1,6 +1,7 @@
 ﻿import { autoinject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 import { Network, NetworkResponse } from '../../network';
+import { FormatData } from '../../formatData';
 
 @autoinject
 export class ZamestnanecInfoClient {
@@ -8,10 +9,11 @@ export class ZamestnanecInfoClient {
     private baseUrl: string;
 
     public evidenciaZamestnanca: any;
+    public poslednyZaznamZamestnanca: any;
     public zamestnanec: any
     public message: string;
 
-    constructor(private network: Network, baseUrl?: string) {
+    constructor(private network: Network, private formatData: FormatData, baseUrl?: string) {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
     }
 
@@ -21,6 +23,16 @@ export class ZamestnanecInfoClient {
         if (response.ok && response.hasData) {
             this.evidenciaZamestnanca = response.data;
             this.zamestnanec = this.evidenciaZamestnanca[0].zamestnanec;
+            this.poslednyZaznamZamestnanca = this.evidenciaZamestnanca[this.evidenciaZamestnanca.length - 1]
         }
     }
+
+    //toCasualDate(date: Date): any {
+    //    return moment(date).format('DD.MM.YYYY');
+    //}
+
+    //toMoney(value: any): any {
+    //    return numeral(value).format('(0,0.00)') +" €";
+    //}
+
 }

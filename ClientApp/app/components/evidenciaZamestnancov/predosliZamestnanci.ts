@@ -1,6 +1,8 @@
 ﻿import { autoinject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 import { Network, NetworkResponse } from '../../network';
+import { Router } from 'aurelia-router';
+import { FormatData } from '../../formatData';
 
 @autoinject
 export class PredchadzajuciZamestnanciClient {
@@ -9,7 +11,7 @@ export class PredchadzajuciZamestnanciClient {
 
     public evidenciaZamestnancov: any;
 
-    constructor(private network: Network, baseUrl?: string) {
+    constructor(private network: Network, private router: Router, private formatData: FormatData, baseUrl?: string) {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
     }
 
@@ -20,7 +22,7 @@ export class PredchadzajuciZamestnanciClient {
         }
     }
 
-    // click handlers
-    //tileClick(droid: any): void {
-    //  this.router.navigateToRoute('droidInfo', { id: droid.id });
+    onClickMeno(evidenciaZamestnanca: any): void {
+        this.router.navigateToRoute('zamestnanecInfo', { zamestnanecID: evidenciaZamestnanca.zamestnanec.zamestnanecID });
+    }
 }

@@ -13,10 +13,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr repeat.for="EvidenciaZamestnanca of evidenciaZamestnancov" click.delegate="onSelectMeno($event, zamestnanecID)">
-                <td style="cursor: pointer;">${ EvidenciaZamestnanca.zamestnanec.meno + " " + EvidenciaZamestnanca.zamestnanec.priezvisko }</td>
-                <td>${ EvidenciaZamestnanca.pozicia.nazov }</td>
-                <td>${ EvidenciaZamestnanca.datumUkoncenia }</td>
+            <tr repeat.for="evidenciaZamestnanca of evidenciaZamestnancov" >
+                <td evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="onClickMeno(evidenciaZamestnanca)" style="cursor: pointer;">${ evidenciaZamestnanca.zamestnanec.meno + " " + evidenciaZamestnanca.zamestnanec.priezvisko }</td>
+                <td>${ evidenciaZamestnanca.pozicia.nazov }</td>
+                <td>${ formatData.toCasualDate(evidenciaZamestnanca.datumUkoncenia) }</td>
                 <td><button type="button">Zmazať</button></td>
             </tr>
         </tbody>

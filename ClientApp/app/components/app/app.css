@@ -1,6 +1,14 @@
-@media (max-width: 767px) {
-    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
-    .body-content {
-        padding-top: 50px;
-    }
+h1 {
+    padding-top: 5px;
+    padding-bottom: 35px;
+}
+
+h2 {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+h3 {
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
