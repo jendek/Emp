@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 namespace Emp.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class HomeController : Controller
     {
         public IActionResult Index()

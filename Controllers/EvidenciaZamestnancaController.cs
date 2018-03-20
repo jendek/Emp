@@ -44,5 +44,27 @@ namespace Emp.Controllers
             }
             return new OkObjectResult(zamestnanecInfo);
         }
+
+        [HttpPost]
+        public IActionResult AddZamestnanecInfo([FromBody] EvidenciaZamestnanca evidenciaZamestnanca)
+        {
+            if (evidenciaZamestnanca == null) return BadRequest();
+
+            _evidenciaZamestnancaRepository.Add(evidenciaZamestnanca);
+            _evidenciaZamestnancaRepository.Save();
+
+            return Ok(evidenciaZamestnanca);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateZamestnanecInfo([FromBody] EvidenciaZamestnanca evidenciaZamestnanca)
+        {
+            if (evidenciaZamestnanca == null) return BadRequest();
+
+            _evidenciaZamestnancaRepository.Update(evidenciaZamestnanca);
+            _evidenciaZamestnancaRepository.Save();
+
+            return Ok(evidenciaZamestnanca);
+        }
     }
 }

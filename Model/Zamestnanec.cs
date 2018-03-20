@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Emp.Model
 {
     public class Zamestnanec
-    {
+    {   
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ZamestnanecID { get; set; }
 

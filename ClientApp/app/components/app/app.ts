@@ -40,7 +40,7 @@ export class App {
             title: 'Pozicie vo firme'
         },
         {
-            route: 'zamestnanecInfo/:zamestnanecID',
+            route: 'zamestnanecInfo/:zamestnanecID?',
             name: 'zamestnanecInfo',
             moduleId: PLATFORM.moduleName('../evidenciaZamestnancov/zamestnanecInfo'),
             nav: false,

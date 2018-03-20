@@ -28,6 +28,7 @@ namespace Emp.DAL
             {
                 context.Pozicie.Add(p);
             }
+
             context.SaveChanges();
 
             var zamestnanci = new Zamestnanec[] {
@@ -43,6 +44,7 @@ namespace Emp.DAL
             {
                 context.Zamestnanci.Add(z);
             }
+
             context.SaveChanges();
 
             var evidenciaZamestnanca = new EvidenciaZamestnanca[]

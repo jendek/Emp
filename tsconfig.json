@@ -9,7 +9,7 @@
     "skipDefaultLibCheck": true,
     "strict": true,
     "lib": [ "es2015", "dom" ],
-    "types": [ "webpack-env" ]
+    "types": [ "webpack-env", "gapi.client" ]
   },
   "exclude": [ "bin", "node_modules" ],
   "atom": { "rewriteTsconfig": false }

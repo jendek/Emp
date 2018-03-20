@@ -1,49 +1,71 @@
 ﻿<template>
     <h1>Údaje o zamestnancovi</h1>
-    <div class="form-group row">
-        <label for="meno" class="col-sm-2 col-form-label">Meno</label>
-        <input id="meno" type="text" readonly="" class="form-control-plaintext col-sm-4" value=${zamestnanec.meno}>
+    <div>
+        <fieldset disabled.bind="editable === 'false'">
+            <div class="form-group col-lg-12">
+                <label for="meno" class="col-lg-1 col-form-label">Meno</label>
+                <div class="col-lg-3">
+                    <input id="meno" type="text" class="form-control" value.bind=zamestnanec.meno>
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <label for="priezvisko" class="col-lg-1 col-form-label">Priezvisko</label>
+                <div class="col-lg-3">
+                    <input id="priezvisko" type="text" class="form-control" value.bind=zamestnanec.priezvisko>
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <label for="adresa" class="col-lg-1 col-form-label">Adresa</label>
+                <div class="col-lg-3">
+                    <input id="adresa" type="text" class="form-control" value.bind=zamestnanec.adresa>
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <label for="datumNarodenia" class="col-lg-1 col-form-label">Dátum narodenia</label>
+                <div class="col-lg-3">
+                    <input id="datumNarodenia" type="datetime" class="form-control" value.bind=zamestnanec.datumNarodenia>
+                </div>
+            </div>
+            <div class="form-group col-lg-12" style="padding-top: 35px">
+                <label for="pozicia" class="col-lg-1 col-form-label">Pozícia</label>
+                <div class="col-lg-3">
+                    <input id="pozicia" type="text" class="form-control" value.bind=evidenciaZamestnancaZaznam.poziciaID>
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <label for="datumNastupu" class="col-lg-1 col-form-label">Dátum nástupu</label>
+                <div class="col-lg-3">
+                    <input id="datumNastupu" type="datetime" class="form-control" value.bind=evidenciaZamestnancaZaznam.datumNastupu>
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                <label for="plat" class="col-lg-1 col-form-label">Plat</label>
+                <div class="col-lg-3">
+                    <input id="plat" type="text" class="form-control" value.bind=evidenciaZamestnancaZaznam.plat>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <button type="button" class="btn btn-success pull-right" if.bind="editable === 'true'" click.delegate="Save(zamestnanec, evidenciaZamestnancaZaznam)">Uložiť</button>
+            </div>
+        </fieldset>
+        <hr style="border-top: dotted 1px;" />
+        <h3>Prehľad pozícií zamestnanca</h3>
+        <table if.bind="evidenciaZamestnanca" class="table">
+            <thead>
+                <tr>
+                    <th>Pozícia</th>
+                    <th>Dátum nástupu</th>
+                    <th>Dátum ukončenia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr repeat.for="zaznam of evidenciaZamestnanca">
+                    <td>${ zaznam.pozicia.nazov  }</td>
+                    <td>${ formatData.toCasualDate(zaznam.datumNastupu)  }</td>
+                    <td>${ formatData.toCasualDate(zaznam.datumUkoncenia)  }</td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
-    <div class="form-group row">
-        <label for="priezvisko" class="col-sm-2 col-form-label">Priezvisko</label>
-        <input id="priezvisko" type="text" readonly="" class="form-control-plaintext col-sm-4" value=${zamestnanec.priezvisko}>
-    </div>
-    <div class="form-group row">
-        <label for="adresa" class="col-sm-2 col-form-label">Adresa</label>
-        <input id="adresa" type="text" readonly="" class="form-control-plaintext col-sm-4" value=${zamestnanec.adresa}>
-    </div>
-    <div class="form-group row">
-        <label for="datumNarodenia" class="col-sm-2 col-form-label">Dátum narodenia</label>
-        <input id="datumNarodenia" type="datetime" readonly="" class="form-control-plaintext col-sm-4" value=${formatData.toCasualDate(zamestnanec.datumNarodenia)}>
-    </div>
-    <div class="form-group row" style="padding-top: 35px">
-        <label for="pozicia" class="col-sm-2 col-form-label">Pozícia</label>
-        <input id="pozicia" type="text" readonly="" class="form-control-plaintext col-sm-4" value=${poslednyZaznamZamestnanca.pozicia.nazov}>
-    </div>
-    <div class="form-group row">
-        <label for="datumNastupu" class="col-sm-2 col-form-label">Dátum nástupu</label>
-        <input id="datumNastupu" type="datetime" readonly="" class="form-control-plaintext col-sm-4" value=${formatData.toCasualDate(poslednyZaznamZamestnanca.datumNastupu)}>
-    </div>
-    <div class="form-group row">
-        <label for="plat" class="col-sm-2 col-form-label">Plat</label>
-        <input id="plat" type="text" readonly="" class="form-control-plaintext col-sm-4" value=${formatData.toMoney(poslednyZaznamZamestnanca.plat)}>
-    </div>
-    <hr style="border-top: dotted 1px;" />
-    <h3>Prehľad pozícií zamestnanca</h3>
-    <table if.bind="evidenciaZamestnanca" class="table">
-        <thead>
-            <tr>
-                <th>Pozícia</th>
-                <th>Dátum nástupu</th>
-                <th>Dátum ukončenia</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr repeat.for="zaznam of evidenciaZamestnanca">
-                <td>${ zaznam.pozicia.nazov  }</td>
-                <td>${ formatData.toCasualDate(zaznam.datumNastupu)  }</td>
-                <td>${ formatData.toCasualDate(zaznam.datumUkoncenia)  }</td>
-            </tr>
-        </tbody>
-    </table>
 </template>

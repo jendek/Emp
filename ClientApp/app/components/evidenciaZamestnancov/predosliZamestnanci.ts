@@ -2,7 +2,6 @@
 import { HttpClient } from 'aurelia-fetch-client';
 import { Network, NetworkResponse } from '../../network';
 import { Router } from 'aurelia-router';
-import { FormatData } from '../../formatData';
 
 @autoinject
 export class PredchadzajuciZamestnanciClient {
@@ -11,7 +10,7 @@ export class PredchadzajuciZamestnanciClient {
 
     public evidenciaZamestnancov: any;
 
-    constructor(private network: Network, private router: Router, private formatData: FormatData, baseUrl?: string) {
+    constructor(private network: Network, private router: Router, baseUrl?: string) {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
     }
 
@@ -22,7 +21,19 @@ export class PredchadzajuciZamestnanciClient {
         }
     }
 
-    onClickMeno(evidenciaZamestnanca: any): void {
-        this.router.navigateToRoute('zamestnanecInfo', { zamestnanecID: evidenciaZamestnanca.zamestnanec.zamestnanecID });
+    detailZamestnanca(id: any): void {
+        this.router.navigateToRoute('zamestnanecInfo', { zamestnanecID: id, editable: false});
+    }
+
+    public deleteZamestnanec(id: any): void {
+        let request = {
+            method: "delete"
+        };
+
+        this.network.request(this.baseUrl + "/api/Zamestnanec/" + id, request).
+            then(response => {
+                this.activate();
+                alert("Zamestnanec bol vymazaný!");
+            });
     }
 }

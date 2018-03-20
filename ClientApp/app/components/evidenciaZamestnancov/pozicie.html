@@ -1,20 +1,25 @@
 ﻿<template bindable="pozicie">
     <h1>Prehľad pozícií</h1>
-
     <p if.bind="!pozicie"><em>Loading...</em></p>
-
-    <table if.bind="pozicie" class="table">
-        <thead>
-            <tr>
-                <th>Názov</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr repeat.for="Pozicia of pozicie">
-                <td>${ Pozicia.nazov }</td>
-                <td><button type="button">Zmazať</button></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="col-lg-4">
+        <form class="pull-right">
+            <label for="poziciaNazovField">Názov pozície:</label>
+            <input type="text" value.bind="poziciaNazov" id="poziciaNazovField">
+            <button type="button" class="btn btn-success" click.delegate="addPozicia(poziciaNazov)">Pridať pozíciu</button>
+        </form>
+        <table if.bind="pozicie" class="table">
+            <thead>
+                <tr>
+                    <th>Názov</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr repeat.for="pozicia of pozicie">
+                    <td>${ pozicia.nazov }</td>
+                    <td><button type="button" class="btn btn-danger btn-block" pozicia.bind="pozicia" click.delegate="deletePozicia(pozicia.poziciaID)">Zmazať</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>

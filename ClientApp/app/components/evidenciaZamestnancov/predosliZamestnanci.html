@@ -2,23 +2,24 @@
     <h1>Prehľad predchádzajúcich zamestnancov</h1>
 
     <p if.bind="!evidenciaZamestnancov"><em>Loading...</em></p>
-
-    <table if.bind="evidenciaZamestnancov" class="table">
-        <thead>
-            <tr>
-                <th>Meno</th>
-                <th>Posledná pozícia</th>
-                <th>Dátum prepustenia</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr repeat.for="evidenciaZamestnanca of evidenciaZamestnancov" >
-                <td evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="onClickMeno(evidenciaZamestnanca)" style="cursor: pointer;">${ evidenciaZamestnanca.zamestnanec.meno + " " + evidenciaZamestnanca.zamestnanec.priezvisko }</td>
-                <td>${ evidenciaZamestnanca.pozicia.nazov }</td>
-                <td>${ formatData.toCasualDate(evidenciaZamestnanca.datumUkoncenia) }</td>
-                <td><button type="button">Zmazať</button></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="col-lg-8">
+        <table if.bind="evidenciaZamestnancov" class="table">
+            <thead>
+                <tr>
+                    <th>Meno</th>
+                    <th>Posledná pozícia</th>
+                    <th>Dátum prepustenia</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr repeat.for="evidenciaZamestnanca of evidenciaZamestnancov">
+                    <td evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="detailZamestnanca(evidenciaZamestnanca.zamestnanec.zamestnanecID)" style="cursor: pointer;">${ evidenciaZamestnanca.zamestnanec.meno + " " + evidenciaZamestnanca.zamestnanec.priezvisko }</td>
+                    <td>${ evidenciaZamestnanca.pozicia.nazov }</td>
+                    <td>${ formatData.toCasualDate(evidenciaZamestnanca.datumUkoncenia) }</td>
+                    <td><button type="button" class="btn btn-danger btn-block" evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="deleteZamestnanec(evidenciaZamestnanca.zamestnanec.zamestnanecID)">Zmazať</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>

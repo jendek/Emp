@@ -23,7 +23,22 @@ export class AktualniZamestnanciClient {
         }
     }
 
-    onClickMeno(evidenciaZamestnanca: any): void {
-        this.router.navigateToRoute('zamestnanecInfo', { zamestnanecID: evidenciaZamestnanca.zamestnanec.zamestnanecID });
+    public detailZamestnanca(id: any, editable: boolean = false): void {
+        if (id == null) {
+            this.router.navigateToRoute('zamestnanecInfo', { editable: editable });
         }
+        this.router.navigateToRoute('zamestnanecInfo', { zamestnanecID: id, editable: editable });
+    }
+
+    public deleteZamestnanec(id: any): void {
+        let request = {
+            method: "delete"
+        };
+
+        this.network.request(this.baseUrl + "/api/Zamestnanec/" + id, request).
+            then(response => {
+                this.activate();
+                alert("Zamestnanec bol vymazaný!");
+            });
+    }
 }
