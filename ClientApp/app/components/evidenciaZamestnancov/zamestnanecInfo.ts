@@ -20,7 +20,6 @@ export class ZamestnanecInfoClient {
         baseUrl?: string)
     {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
-        this.network = network;
     }
 
     async activate(params: any) {
@@ -30,17 +29,17 @@ export class ZamestnanecInfoClient {
         if (response.ok && response.hasData && params.zamestnanecID != null) {
             this.evidenciaZamestnanca = response.data;
             this.evidenciaZamestnancaZaznam = this.evidenciaZamestnanca[this.evidenciaZamestnanca.length - 1];
-            this.zamestnanec = this.evidenciaZamestnanca[0].zamestnanec;
+            this.zamestnanec = this.evidenciaZamestnancaZaznam.zamestnanec;
         } else { this.evidenciaZamestnancaZaznam.datumNastupu = new Date().toISOString().substring(0, 10); }
     }
 
     public Save(zamestnanec: Zamestnanec, evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
-        evidenciaZamestnancaZaznam.zamestnanec = zamestnanec;
-        if (zamestnanec.zamestnanecID == null) {
-            this.AddEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
-        } else {
-            this.UpdateEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
-        }
+                    evidenciaZamestnancaZaznam.zamestnanec = zamestnanec;
+                    if (zamestnanec.zamestnanecID == null) {
+                        this.AddEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
+                    } else {
+                        this.UpdateEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
+                    }
     }
 
     public UpdateEvidenciaZamestnanca(evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
@@ -74,10 +73,9 @@ export class ZamestnanecInfoClient {
 
     private DropdownChanged(id: number) {
         this.evidenciaZamestnancaZaznam.poziciaID = id;
-    }
+    }   
  }
 
-@transient()
 export class Zamestnanec {
     zamestnanecID: number;
     meno: string;
@@ -88,7 +86,6 @@ export class Zamestnanec {
     constructor(data = {}) {
         Object.assign(this, data);
     }
-
 }
 
 export class EvidenciaZamestnancaZaznam {
@@ -105,5 +102,4 @@ export class EvidenciaZamestnancaZaznam {
     constructor(data = {}) {
         Object.assign(this, data);
     }
-
 }

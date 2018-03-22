@@ -4,8 +4,9 @@
     <div class="col-lg-4">
         <form class="pull-right">
             <label for="poziciaNazovField">Názov pozície:</label>
-            <input type="text" value.bind="poziciaNazov" id="poziciaNazovField">
-            <button type="button" class="btn btn-success" click.delegate="addPozicia(poziciaNazov)">Pridať pozíciu</button>
+            <input type="text" value.bind='nazov & validate: validationController'>
+            <button class="btn btn-success" click.delegate="addPozicia(nazov)">Pridať pozíciu</button>
+            <ul class="errors"><li repeat.for="error of validationController.errors">${error.message}</li></ul>
         </form>
         <table if.bind="pozicie" class="table">
             <thead>

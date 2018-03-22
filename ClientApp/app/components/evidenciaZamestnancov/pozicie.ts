@@ -1,16 +1,28 @@
 ﻿import { autoinject } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { Network, NetworkResponse } from '../../network';
+import { BootstrapFormRenderer } from '../../bootstrap-form-renderer';
+import { ValidationControllerFactory, ValidationController, ValidationRules, validateTrigger } from "aurelia-validation";
 
 @autoinject
 export class PozicieClient {
-
-    private baseUrl: string;
     private pozicie: any;
-    private poziciaNazov: string;
+    private nazov: string;
+    private validationController: ValidationController;
+    public valid: boolean;
 
-    constructor(private network: Network, baseUrl?: string) {
+    constructor(
+        private network: Network,
+        private validationControllerFactory: ValidationControllerFactory,
+        private baseUrl?: string)
+    {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
+        this.validationController = validationControllerFactory.createForCurrentScope();
+        this.validationController.validateTrigger = validateTrigger.manual;
+        
+        ValidationRules
+            .ensure('nazov').required().minLength(3)
+            .on(PozicieClient);
     }
 
     async activate() {
@@ -18,22 +30,29 @@ export class PozicieClient {
         if (response.ok && response.hasData) {
             this.pozicie = response.data;
         }
-    }
+}
 
-    public addPozicia(poziciaNazov: string): void {
-        let pozicia = new Pozicia({ Nazov: poziciaNazov });
+    public addPozicia(inputNazov: string): void {
+        this.validationController.validate().then(result => {
+            if (result.valid) {
+                this.valid = true;
+                let pozicia = new Pozicia({ nazov: inputNazov });
 
-        let request = {
-            method: "post",
-            body: json(pozicia)
-        };
+                let request = {
+                    method: "post",
+                    body: json(pozicia)
+                };
 
-        this.network.request(this.baseUrl + "/api/Pozicia/", request).
-            then(response => {
-                this.activate();
-                alert("Pozicia bola pridaná!");
-            });
-        this.poziciaNazov = "";
+                this.network.request(this.baseUrl + "/api/Pozicia/", request).
+                    then(response => {
+                        this.activate();
+                        alert("Pozicia bola pridaná!");
+                    });
+                this.nazov = "";
+            } else {
+                this.valid = false;
+            }
+        });
     }
 
     public deletePozicia(id: any): void {

@@ -12,3 +12,8 @@ h3 {
     padding-top: 25px;
     padding-bottom: 25px;
 }
+
+.errors {
+    color: red;
+    font-style:oblique;
+}

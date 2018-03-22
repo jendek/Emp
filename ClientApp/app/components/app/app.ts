@@ -1,3 +1,4 @@
+import { autoinject} from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 import { Aurelia, PLATFORM } from 'aurelia-framework';
 import { Router, RouterConfiguration } from 'aurelia-router';
