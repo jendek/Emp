@@ -257,6 +257,14 @@
         "aurelia-task-queue": "1.2.0"
       }
     },
+    "aurelia-bootstrap-datepicker": {
+      "version": "0.0.8",
+      "resolved": "https://registry.npmjs.org/aurelia-bootstrap-datepicker/-/aurelia-bootstrap-datepicker-0.0.8.tgz",
+      "integrity": "sha1-npV0V0tW8u12vvkBR4ypR57wbpg=",
+      "requires": {
+        "bootstrap-datepicker": "1.7.1"
+      }
+    },
     "aurelia-bootstrapper": {
       "version": "2.1.1",
       "resolved": "https://registry.npmjs.org/aurelia-bootstrapper/-/aurelia-bootstrapper-2.1.1.tgz",
@@ -522,16 +530,29 @@
       }
     },
     "aurelia-validation": {
-      "version": "1.1.2",
-      "resolved": "https://registry.npmjs.org/aurelia-validation/-/aurelia-validation-1.1.2.tgz",
-      "integrity": "sha1-IjBK1lrdQTLbwJDZP6oE1cwsPOk=",
+      "version": "1.1.3",
+      "resolved": "https://registry.npmjs.org/aurelia-validation/-/aurelia-validation-1.1.3.tgz",
+      "integrity": "sha512-40vCI0StmM6sngxVTFGzlvlxcMfu0kw9YZlCer77zqmBL0GSAb81Kp+ukn5nCoEorr9031Uw2VBjJbSE70o/Og==",
       "requires": {
-        "aurelia-binding": "1.2.1",
+        "aurelia-binding": "1.7.1",
         "aurelia-dependency-injection": "1.3.1",
         "aurelia-logging": "1.3.1",
         "aurelia-pal": "1.3.0",
         "aurelia-task-queue": "1.2.0",
         "aurelia-templating": "1.4.2"
+      },
+      "dependencies": {
+        "aurelia-binding": {
+          "version": "1.7.1",
+          "resolved": "https://registry.npmjs.org/aurelia-binding/-/aurelia-binding-1.7.1.tgz",
+          "integrity": "sha512-yJce6ka8PlVCqzFMNaJwUBRDlno1aJTDruc0hxO9TvFGviVieycyHHFuvj0+3TKSxZLK37hSA7F/jWeVperHpg==",
+          "requires": {
+            "aurelia-logging": "1.3.1",
+            "aurelia-metadata": "1.0.3",
+            "aurelia-pal": "1.3.0",
+            "aurelia-task-queue": "1.2.0"
+          }
+        }
       }
     },
     "aurelia-webpack-plugin": {
@@ -950,6 +971,14 @@
       "resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz",
       "integrity": "sha1-WjiTlFSfIzMIdaOxUGVldPip63E=",
       "dev": true
+    },
+    "bootstrap-datepicker": {
+      "version": "1.7.1",
+      "resolved": "https://registry.npmjs.org/bootstrap-datepicker/-/bootstrap-datepicker-1.7.1.tgz",
+      "integrity": "sha1-Tuf680iI2+x4NPv52+fEJ34B3a8=",
+      "requires": {
+        "jquery": "2.2.4"
+      }
     },
     "brace-expansion": {
       "version": "1.1.8",
@@ -4219,8 +4248,7 @@
     "jquery": {
       "version": "2.2.4",
       "resolved": "https://registry.npmjs.org/jquery/-/jquery-2.2.4.tgz",
-      "integrity": "sha1-LInWiJterFIqfuoywUUhVZxsvwI=",
-      "dev": true
+      "integrity": "sha1-LInWiJterFIqfuoywUUhVZxsvwI="
     },
     "js-base64": {
       "version": "2.1.9",

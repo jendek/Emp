@@ -1,4 +1,5 @@
 ﻿<template>
+    <require from="../../date-format"></require>
     <h1>Prehľad predchádzajúcich zamestnancov</h1>
 
     <p if.bind="!evidenciaZamestnancov"><em>Loading...</em></p>
@@ -16,7 +17,7 @@
                 <tr repeat.for="evidenciaZamestnanca of evidenciaZamestnancov">
                     <td evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="detailZamestnanca(evidenciaZamestnanca.zamestnanec.zamestnanecID)" style="cursor: pointer;">${ evidenciaZamestnanca.zamestnanec.meno + " " + evidenciaZamestnanca.zamestnanec.priezvisko }</td>
                     <td>${ evidenciaZamestnanca.pozicia.nazov }</td>
-                    <td>${ formatData.toCasualDate(evidenciaZamestnanca.datumUkoncenia) }</td>
+                    <td>${ evidenciaZamestnanca.datumUkoncenia | dateFormat }</td>
                     <td><button type="button" class="btn btn-danger btn-block" evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="deleteZamestnanec(evidenciaZamestnanca.zamestnanec.zamestnanecID)">Zmazať</button></td>
                 </tr>
             </tbody>

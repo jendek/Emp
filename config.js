@@ -127,6 +127,11 @@ System.config({
     },
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
-    }
+    },
+    {
+        "name": "aurelia-validation",
+        "path": "../node_modules/aurelia-validation/dist/amd",
+        "main": "aurelia-validation"
+    },
   }
 });

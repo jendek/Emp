@@ -50,9 +50,9 @@ export class PozicieClient {
 }
 
 export class Pozicia {
-    PoziciaID: number;
-    Nazov: string;
-    Vymazana: boolean;
+    poziciaID: number;
+    nazov: string;
+    vymazana: boolean;
 
     constructor(data = {}) {
         Object.assign(this, data);

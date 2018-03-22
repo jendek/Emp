@@ -1,4 +1,8 @@
 ﻿<template>
+    <require from="../../datepicker-format"></require>
+    <require from="../../date-format"></require>
+    <require from="../../currency-format"></require>
+
     <h1>Údaje o zamestnancovi</h1>
     <div>
         <fieldset disabled.bind="editable === 'false'">
@@ -23,25 +27,28 @@
             <div class="form-group col-lg-12">
                 <label for="datumNarodenia" class="col-lg-1 col-form-label">Dátum narodenia</label>
                 <div class="col-lg-3">
-                    <input id="datumNarodenia" type="datetime" class="form-control" value.bind=zamestnanec.datumNarodenia>
+                    <input id="datumNarodenia" type="date" class="form-control" value.bind="zamestnanec.datumNarodenia | datePickerFormat">
                 </div>
             </div>
             <div class="form-group col-lg-12" style="padding-top: 35px">
                 <label for="pozicia" class="col-lg-1 col-form-label">Pozícia</label>
                 <div class="col-lg-3">
-                    <input id="pozicia" type="text" class="form-control" value.bind=evidenciaZamestnancaZaznam.poziciaID>
+                    <select class="form-control" value.bind=pozicia.poziciaID change.delegate="DropdownChanged(pozicia.poziciaID)">
+                        <option repeat.for="pozicia of pozicie" model.bind=pozicia.poziciaID>${pozicia.nazov}</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group col-lg-12">
                 <label for="datumNastupu" class="col-lg-1 col-form-label">Dátum nástupu</label>
                 <div class="col-lg-3">
-                    <input id="datumNastupu" type="datetime" class="form-control" value.bind=evidenciaZamestnancaZaznam.datumNastupu>
+                    <input id="datumNastupu" type="date" class="form-control" value.bind="evidenciaZamestnancaZaznam.datumNastupu | datePickerFormat">
                 </div>
+
             </div>
             <div class="form-group col-lg-12">
                 <label for="plat" class="col-lg-1 col-form-label">Plat</label>
                 <div class="col-lg-3">
-                    <input id="plat" type="text" class="form-control" value.bind=evidenciaZamestnancaZaznam.plat>
+                    <input id="plat" type="text" class="form-control" value.bind="evidenciaZamestnancaZaznam.plat">
                 </div>
             </div>
             <div class="col-lg-4">
@@ -61,8 +68,8 @@
             <tbody>
                 <tr repeat.for="zaznam of evidenciaZamestnanca">
                     <td>${ zaznam.pozicia.nazov  }</td>
-                    <td>${ formatData.toCasualDate(zaznam.datumNastupu)  }</td>
-                    <td>${ formatData.toCasualDate(zaznam.datumUkoncenia)  }</td>
+                    <td>${ zaznam.datumNastupu | dateFormat }</td>
+                    <td>${ zaznam.datumUkoncenia | dateFormat  }</td>
                 </tr>
             </tbody>
         </table>

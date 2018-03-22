@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "@types/gapi.client": "^1.0.0",
-    "aurelia-validation": "^1.1.2",
+    "aurelia-bootstrap-datepicker": "0.0.8",
+    "aurelia-validation": "^1.1.3",
     "moment": "^2.21.0",
     "numeral": "^2.0.6"
   },

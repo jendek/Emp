@@ -9,8 +9,10 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\components\app\currency-format.ts" />
+    <None Remove="ClientApp\app\components\currency-format.ts" />
     <None Remove="ClientApp\app\components\evidenciaZamestnancov\zamestnanecInfo.ts" />
-    <None Remove="ClientApp\app\FormatData.ts" />
+    <None Remove="ClientApp\app\date-format.ts" />
+    <None Remove="ClientApp\app\datepicker-format.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,8 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\currency-format.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\evidenciaZamestnancov\zamestnanecInfo.ts" />
-    <TypeScriptCompile Include="ClientApp\app\formatData.ts" />
+    <TypeScriptCompile Include="ClientApp\app\datepicker-format.ts" />
+    <TypeScriptCompile Include="ClientApp\app\date-format.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
