@@ -14,6 +14,7 @@ export class ZamestnanecInfoClient {
     private editable: boolean;
     private evidenciaZamestnanca: any;
     private evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam = new EvidenciaZamestnancaZaznam();
+    private zamestnanec: Zamestnanec = new Zamestnanec();;
     private pozicie: Pozicia[];
     private evidenciaZamestnancaZaznamValidationRules: ValidationRules; 
     private zamestnanecValidationRules: ValidationRules; 
@@ -25,10 +26,6 @@ export class ZamestnanecInfoClient {
         baseUrl?: string)
     {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
-        this.validationController = validationControllerFactory.createForCurrentScope();
-        this.validationController.validateTrigger = validateTrigger.blur;
-        this.validationController.addRenderer(new BootstrapFormRenderer());
-        this.defineValidationRules();
     }
 
     async activate(params: any) {
@@ -38,25 +35,29 @@ export class ZamestnanecInfoClient {
         if (response.ok && response.hasData && params.zamestnanecID != null) {
             this.evidenciaZamestnanca = response.data;
             this.evidenciaZamestnancaZaznam = this.evidenciaZamestnanca[this.evidenciaZamestnanca.length - 1];
+            this.zamestnanec = this.evidenciaZamestnancaZaznam.zamestnanec;
         } else {
-            this.evidenciaZamestnancaZaznam.zamestnanec = new Zamestnanec();
+            this.evidenciaZamestnancaZaznam.zamestnanec = this.zamestnanec;
             this.evidenciaZamestnancaZaznam.poziciaID = 1;
             this.evidenciaZamestnancaZaznam.zamestnanec.datumNarodenia = moment().format('L').toString();
             this.evidenciaZamestnancaZaznam.datumNastupu = moment().format('L').toString();
         }
+
+        this.validationController = this.validationControllerFactory.createForCurrentScope();
+        this.validationController.validateTrigger = validateTrigger.blur;
+        this.validationController.addRenderer(new BootstrapFormRenderer());
+        this.defineValidationRules();
     }
 
     public Save(zamestnanec: Zamestnanec, evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
-
-        this.validationController.addObject(evidenciaZamestnancaZaznam);
-        this.validationController.addObject(evidenciaZamestnancaZaznam.zamestnanec);
-
         this.validationController.validate()
             .then(result => {
+                console.log(result.valid);
                 if (result.valid) {
                     if (evidenciaZamestnancaZaznam.zamestnanec.zamestnanecID == null) {
                         this.AddEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
                     } else {
+                        console.log("1");
                         this.UpdateEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
                     }
                 }
@@ -66,6 +67,8 @@ export class ZamestnanecInfoClient {
     public UpdateEvidenciaZamestnanca(evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
 
         let request = { method: "put", body: json(evidenciaZamestnancaZaznam)};
+
+        console.log(request.body.toString())
 
         this.network.request(this.baseUrl + "/api/EvidenciaZamestnanca/", request)
             .then(response => {
@@ -120,15 +123,26 @@ export class ZamestnanecInfoClient {
         this.zamestnanecValidationRules = ValidationRules
             .ensure('meno').required().withMessage('Meno je povinný údaj.')
             .ensure('priezvisko').required().withMessage('Priezvisko je povinný údaj.')
-            .ensure('datumNarodenia').satisfiesRule('datumNarodeniaRule')
+            .ensure('datumNarodenia').satisfiesRule('datumNarodeniaRule').required().withMessage('Dátum narodenia je povinný údaj.')
             .on(Zamestnanec)
             .rules;
 
-        this.evidenciaZamestnancaZaznamValidationRules = ValidationRules
-            .ensure('datumNastupu').satisfiesRule('datumNastupuRule')
-            .ensure('plat').required().withMessage('Plat je povinný údaj.')
-            .on(EvidenciaZamestnancaZaznam)
-            .rules;
+        if (this.evidenciaZamestnancaZaznam.zamestnanec.zamestnanecID != null) {
+            this.evidenciaZamestnancaZaznamValidationRules = ValidationRules
+                .ensure('datumNastupu').required().withMessage('Dátum nástupu je povinný údaj.')
+                .ensure('plat').required().withMessage('Plat je povinný údaj.')
+                .on(EvidenciaZamestnancaZaznam)
+                .rules;
+        } else {
+            this.evidenciaZamestnancaZaznamValidationRules = ValidationRules
+                .ensure('datumNastupu').satisfiesRule('datumNastupuRule').required().withMessage('Dátum nástupu je povinný údaj.')
+                .ensure('plat').required().withMessage('Plat je povinný údaj.')
+                .on(EvidenciaZamestnancaZaznam)
+                .rules;            
+        }
+
+        this.validationController.addObject(this.evidenciaZamestnancaZaznam, this.evidenciaZamestnancaZaznamValidationRules);
+        this.validationController.addObject(this.zamestnanec, this.zamestnanecValidationRules);
     }
  }
 
