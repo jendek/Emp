@@ -17,7 +17,7 @@
                     <td evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="detailZamestnanca(evidenciaZamestnanca.zamestnanec.zamestnanecID, 'false')" style="cursor: pointer;">${ evidenciaZamestnanca.zamestnanec.meno + " " + evidenciaZamestnanca.zamestnanec.priezvisko }</td>
                     <td>${ evidenciaZamestnanca.pozicia.nazov }</td>
                     <td><button type="button" class="btn btn-info btn-block" evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="detailZamestnanca(evidenciaZamestnanca.zamestnanec.zamestnanecID, 'true')">Editácia</button></td>
-                    <td><button type="button" class="btn btn-danger btn-block" evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="deleteZamestnanec(evidenciaZamestnanca.zamestnanec.zamestnanecID)">Zmazať</button></td>
+                    <td><button type="button" class="btn btn-danger btn-block" evidenciaZamestnanca.bind="evidenciaZamestnanca" click.delegate="deleteZamestnanec(evidenciaZamestnanca)">Zmazať</button></td>
                 </tr>
             </tbody>
         </table>

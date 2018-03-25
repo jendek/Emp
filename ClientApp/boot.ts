@@ -9,7 +9,8 @@ export function configure(aurelia: Aurelia) {
     aurelia.use
         .standardConfiguration()
         .plugin(PLATFORM.moduleName('aurelia-validation'))
-        .plugin(PLATFORM.moduleName('aurelia-validatejs'));
+        .plugin(PLATFORM.moduleName('aurelia-validatejs'))
+        .plugin(PLATFORM.moduleName('aurelia-dialog'));
 
     if (IS_DEV_BUILD) {
         aurelia.use.developmentLogging();

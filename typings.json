@@ -3,5 +3,8 @@
     "url-search-params-typing": "github:RomkeVdMeulen/URLSearchParams",
     "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20161004182750",
     "whatwg-streams": "registry:dt/whatwg-streams#0.0.0+20161214010628"
+  },
+  "dependencies": {
+    "aurelia-dialog": "github:aurelia/dialog"
   }
 }

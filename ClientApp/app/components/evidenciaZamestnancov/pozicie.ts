@@ -3,13 +3,14 @@ import { HttpClient, json } from 'aurelia-fetch-client';
 import { Network, NetworkResponse } from '../../network';
 import { BootstrapFormRenderer } from '../../bootstrap-form-renderer';
 import { ValidationControllerFactory, ValidationController, ValidationRules, validateTrigger } from "aurelia-validation";
+import { bindable } from "aurelia-templating/dist/aurelia-templating";
 
 @autoinject
 export class PozicieClient {
     private pozicie: any;
-    private nazov: string;
+    private pozicia: Pozicia = new Pozicia();
+    private poziciaValidationRules: ValidationRules;
     private validationController: ValidationController;
-    public valid: boolean;
 
     constructor(
         private network: Network,
@@ -18,11 +19,14 @@ export class PozicieClient {
     {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
         this.validationController = validationControllerFactory.createForCurrentScope();
-        this.validationController.validateTrigger = validateTrigger.manual;
-        
-        ValidationRules
-            .ensure('nazov').required().minLength(3)
-            .on(PozicieClient);
+        this.validationController.validateTrigger = validateTrigger.blur;
+        this.validationController.addRenderer(new BootstrapFormRenderer());
+
+        this.poziciaValidationRules = ValidationRules
+            .ensure('nazov').required().withMessage("Povinný údaj")
+            .ensure('nazov').minLength(3).withMessage("Minimálne 3 znaky")
+            .on(Pozicia)
+            .rules;
     }
 
     async activate() {
@@ -32,12 +36,9 @@ export class PozicieClient {
         }
 }
 
-    public addPozicia(inputNazov: string): void {
-        this.validationController.validate().then(result => {
+    public addPozicia(pozicia: Pozicia): void {
+        this.validationController.validate({ object: pozicia, rules: this.poziciaValidationRules }).then(result => {
             if (result.valid) {
-                this.valid = true;
-                let pozicia = new Pozicia({ nazov: inputNazov });
-
                 let request = {
                     method: "post",
                     body: json(pozicia)
@@ -46,11 +47,8 @@ export class PozicieClient {
                 this.network.request(this.baseUrl + "/api/Pozicia/", request).
                     then(response => {
                         this.activate();
-                        alert("Pozicia bola pridaná!");
                     });
-                this.nazov = "";
-            } else {
-                this.valid = false;
+                this.pozicia.nazov = "";
             }
         });
     }
@@ -63,7 +61,6 @@ export class PozicieClient {
         this.network.request(this.baseUrl + "/api/Pozicia/" + id, request).
             then(response => {
                 this.activate();
-                alert("Pozicia bola vymazaná!");
             });
     }
 }

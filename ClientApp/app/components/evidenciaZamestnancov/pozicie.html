@@ -1,13 +1,19 @@
 ﻿<template bindable="pozicie">
-    <h1>Prehľad pozícií</h1>
+    <h1>Prehľad pozícií ${ valid }</h1>
     <p if.bind="!pozicie"><em>Loading...</em></p>
-    <div class="col-lg-4">
-        <form class="pull-right">
-            <label for="poziciaNazovField">Názov pozície:</label>
-            <input type="text" value.bind='nazov & validate: validationController'>
-            <button class="btn btn-success" click.delegate="addPozicia(nazov)">Pridať pozíciu</button>
-            <ul class="errors"><li repeat.for="error of validationController.errors">${error.message}</li></ul>
-        </form>
+    <div style="max-width:800px">
+        <div class="form-group col-lg-12">
+            <label class="form-control-static col-lg-2" for="poziciaNazovField">Názov pozície:</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" value.bind="pozicia.nazov & validate: poziciaValidationRules">
+            </div>
+            <div class="col-lg-2 pull-right">
+                <button class="btn btn-success form-group" click.delegate="addPozicia(pozicia)">Pridať pozíciu</button>
+            </div>
+        </div>
+        
+
+
         <table if.bind="pozicie" class="table">
             <thead>
                 <tr>

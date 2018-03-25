@@ -2,15 +2,19 @@
 import { HttpClient } from 'aurelia-fetch-client';
 import { Network, NetworkResponse } from '../../network';
 import { Router } from 'aurelia-router';
+import { DialogService } from 'aurelia-dialog';
+import { Prompt } from '../modal/modal';
 
 @autoinject
 export class PredchadzajuciZamestnanciClient {
 
-    private baseUrl: string;
-
     public evidenciaZamestnancov: any;
 
-    constructor(private network: Network, private router: Router, baseUrl?: string) {
+    constructor(
+        private network: Network,
+        private router: Router,
+        private dialogService: DialogService,
+        private baseUrl?: string) {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
     }
 
@@ -22,18 +26,19 @@ export class PredchadzajuciZamestnanciClient {
     }
 
     detailZamestnanca(id: any): void {
-        this.router.navigateToRoute('zamestnanecInfo', { zamestnanecID: id, editable: false});
+        this.router.navigateToRoute('zamestnanecInfo', { zamestnanecID: id, editable: false });
     }
 
-    public deleteZamestnanec(id: any): void {
-        let request = {
-            method: "delete"
-        };
+    public deleteZamestnanec(evidenciaZamestnancaZaznam: any): void {
+        this.dialogService.open({ viewModel: Prompt, model: 'Natrvalo zmazať zamestnanca?', lock: true }).whenClosed(response => {
+            if (!response.wasCancelled) { } else {
+                let request = { method: "delete" };
 
-        this.network.request(this.baseUrl + "/api/Zamestnanec/" + id, request).
-            then(response => {
-                this.activate();
-                alert("Zamestnanec bol vymazaný!");
-            });
+                this.network.request(this.baseUrl + "/api/Zamestnanec/" + evidenciaZamestnancaZaznam.zamestnanecID, request).
+                    then(response => {
+                        this.activate();
+                    });
+            }
+        });
     }
 }
