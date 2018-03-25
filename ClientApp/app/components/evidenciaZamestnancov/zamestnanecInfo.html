@@ -37,8 +37,7 @@
             <div class="form-group col-lg-12" style="padding-top: 35px">
                 <label for="pozicia" class="col-lg-1 col-form-label">Pozícia</label>
                 <div class="col-lg-3">
-                    <select class="form-control" 
-                            value.bind=pozicia.poziciaID change.delegate="DropdownChanged(pozicia.poziciaID)">
+                    <select class="form-control" value.bind="evidenciaZamestnancaZaznam.poziciaID" matcher.bind="poziciaMatcher">
                         <option repeat.for="pozicia of pozicie" model.bind=pozicia.poziciaID>${pozicia.nazov}</option>
                     </select>
                 </div>

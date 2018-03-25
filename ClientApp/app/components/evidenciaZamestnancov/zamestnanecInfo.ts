@@ -14,8 +14,10 @@ export class ZamestnanecInfoClient {
     private editable: boolean;
     private evidenciaZamestnanca: any;
     private evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam = new EvidenciaZamestnancaZaznam();
-    private zamestnanec: Zamestnanec = new Zamestnanec();;
+    private zamestnanec: Zamestnanec = new Zamestnanec();
     private pozicie: Pozicia[];
+    private pozicia: Pozicia = new Pozicia;
+    private poziciaMatcher: any;
     private evidenciaZamestnancaZaznamValidationRules: ValidationRules; 
     private zamestnanecValidationRules: ValidationRules; 
 
@@ -38,9 +40,10 @@ export class ZamestnanecInfoClient {
             this.zamestnanec = this.evidenciaZamestnancaZaznam.zamestnanec;
         } else {
             this.evidenciaZamestnancaZaznam.zamestnanec = this.zamestnanec;
-            this.evidenciaZamestnancaZaznam.poziciaID = 1;
             this.evidenciaZamestnancaZaznam.zamestnanec.datumNarodenia = moment().format('L').toString();
             this.evidenciaZamestnancaZaznam.datumNastupu = moment().format('L').toString();
+            console.log(this.evidenciaZamestnancaZaznam);
+            console.log(this.evidenciaZamestnancaZaznam.toString());
         }
 
         this.validationController = this.validationControllerFactory.createForCurrentScope();
@@ -57,7 +60,7 @@ export class ZamestnanecInfoClient {
                     if (evidenciaZamestnancaZaznam.zamestnanec.zamestnanecID == null) {
                         this.AddEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
                     } else {
-                        console.log("1");
+                        console.log("UPDATE");
                         this.UpdateEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
                     }
                 }
@@ -167,7 +170,7 @@ export class EvidenciaZamestnancaZaznam {
     //DatumUkoncenia: Date;
     plat: string;
     zamestnanec: Zamestnanec;
-    pozicia: Pozicia;
+    //pozicia: Pozicia;
 
     constructor(data = {}) {
         Object.assign(this, data);

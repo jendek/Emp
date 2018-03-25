@@ -61,6 +61,7 @@ namespace Emp.Controllers
         {
             if (evidenciaZamestnanca == null) return BadRequest();
 
+            evidenciaZamestnanca.Pozicia = null;
             _evidenciaZamestnancaRepository.Update(evidenciaZamestnanca);
             _evidenciaZamestnancaRepository.Save();
 
