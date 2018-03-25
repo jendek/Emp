@@ -147,6 +147,10 @@ export class ZamestnanecInfoClient {
         this.validationController.addObject(this.evidenciaZamestnancaZaznam, this.evidenciaZamestnancaZaznamValidationRules);
         this.validationController.addObject(this.zamestnanec, this.zamestnanecValidationRules);
     }
+
+    private roundInput() {
+        this.evidenciaZamestnancaZaznam.plat = parseFloat(this.evidenciaZamestnancaZaznam.plat).toFixed(2);
+    }
  }
 
 export class Zamestnanec {

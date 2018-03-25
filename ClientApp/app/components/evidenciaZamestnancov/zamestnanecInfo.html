@@ -4,81 +4,79 @@
     <require from="../../currency-format"></require>
 
     <h1>Údaje o zamestnancovi</h1>
-    <div>
-        <fieldset disabled.bind="editable === 'false'">
-            <div class="form-group col-lg-12">
-                <label for="meno" class="col-lg-1 col-form-label">Meno</label>
-                <div class="col-lg-3">
-                    <input id="meno" type="text" class="form-control" 
-                           value.bind="evidenciaZamestnancaZaznam.zamestnanec.meno & validate:zamestnanecValidationRules">
+        <form name="zamestnanecInfoForm">
+            <fieldset disabled.bind="editable === 'false'">
+                <div class="form-group col-lg-12">
+                    <label for="meno" class="col-lg-1 col-form-label">Meno</label>
+                    <div class="col-lg-3">
+                        <input id="meno" type="text" class="form-control"
+                               value.bind="evidenciaZamestnancaZaznam.zamestnanec.meno & validate:zamestnanecValidationRules">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-lg-12">
-                <label for="priezvisko" class="col-lg-1 col-form-label">Priezvisko</label>
-                <div class="col-lg-3">
-                    <input id="priezvisko" type="text" class="form-control" 
-                           value.bind="evidenciaZamestnancaZaznam.zamestnanec.priezvisko & validate:zamestnanecValidationRules">
+                <div class="form-group col-lg-12">
+                    <label for="priezvisko" class="col-lg-1 col-form-label">Priezvisko</label>
+                    <div class="col-lg-3">
+                        <input id="priezvisko" type="text" class="form-control"
+                               value.bind="evidenciaZamestnancaZaznam.zamestnanec.priezvisko & validate:zamestnanecValidationRules">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-lg-12">
-                <label for="adresa" class="col-lg-1 col-form-label">Adresa</label>
-                <div class="col-lg-3">
-                    <input id="adresa" type="text" class="form-control" 
-                           value.bind=evidenciaZamestnancaZaznam.zamestnanec.adresa>
+                <div class="form-group col-lg-12">
+                    <label for="adresa" class="col-lg-1 col-form-label">Adresa</label>
+                    <div class="col-lg-3">
+                        <input id="adresa" type="text" class="form-control"
+                               value.bind=evidenciaZamestnancaZaznam.zamestnanec.adresa>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-lg-12">
-                <label for="datumNarodenia" class="col-lg-1 col-form-label">Dátum narodenia</label>
-                <div class="col-lg-3">
-                    <input id="datumNarodenia" type="date" class="form-control"
-                           value.bind="evidenciaZamestnancaZaznam.zamestnanec.datumNarodenia | datePickerFormat & validate:zamestnanecValidationRules">
+                <div class="form-group col-lg-12">
+                    <label for="datumNarodenia" class="col-lg-1 col-form-label">Dátum narodenia</label>
+                    <div class="col-lg-3">
+                        <input id="datumNarodenia" type="date" class="form-control"
+                               value.bind="evidenciaZamestnancaZaznam.zamestnanec.datumNarodenia | datePickerFormat & validate:zamestnanecValidationRules">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-lg-12" style="padding-top: 35px">
-                <label for="pozicia" class="col-lg-1 col-form-label">Pozícia</label>
-                <div class="col-lg-3">
-                    <select class="form-control" value.bind="evidenciaZamestnancaZaznam.poziciaID" matcher.bind="poziciaMatcher">
-                        <option repeat.for="pozicia of pozicie" model.bind=pozicia.poziciaID>${pozicia.nazov}</option>
-                    </select>
+                <div class="form-group col-lg-12" style="padding-top: 35px">
+                    <label for="pozicia" class="col-lg-1 col-form-label">Pozícia</label>
+                    <div class="col-lg-3">
+                        <select class="form-control" value.bind="evidenciaZamestnancaZaznam.poziciaID" matcher.bind="poziciaMatcher">
+                            <option repeat.for="pozicia of pozicie" model.bind=pozicia.poziciaID>${pozicia.nazov}</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-lg-12">
-                <label for="datumNastupu" class="col-lg-1 col-form-label">Dátum nástupu</label>
-                <div class="col-lg-3">
-                    <input id="datumNastupu" type="date" class="form-control" 
-                           value.bind="evidenciaZamestnancaZaznam.datumNastupu | datePickerFormat & validate:evidenciaZamestnancaZaznamValidationRules">
+                <div class="form-group col-lg-12">
+                    <label for="datumNastupu" class="col-lg-1 col-form-label">Dátum nástupu</label>
+                    <div class="col-lg-3">
+                        <input id="datumNastupu" type="date" class="form-control"
+                               value.bind="evidenciaZamestnancaZaznam.datumNastupu | datePickerFormat & validate:evidenciaZamestnancaZaznamValidationRules">
+                    </div>
                 </div>
+                <div class="form-group col-lg-12">
+                    <label for="plat" class="col-lg-1 col-form-label">Plat</label>
+                    <div class="col-lg-3">
+                        <input type="number" step="0.01" class="form-control" blur.trigger="roundInput()" value.bind="evidenciaZamestnancaZaznam.plat & validate:evidenciaZamestnancaZaznamValidationRules" />
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <button type="button" class="btn btn-success pull-right" if.bind="editable === 'true'" click.delegate="Save(zamestnanec, evidenciaZamestnancaZaznam)">Uložiť</button>
+                </div>
+            </fieldset>
+            <hr style="border-top: dotted 1px;" />
+            <h3>Prehľad pozícií zamestnanca</h3>
+            <table if.bind="evidenciaZamestnanca" class="table">
+                <thead>
+                    <tr>
+                        <th>Pozícia</th>
+                        <th>Dátum nástupu</th>
+                        <th>Dátum ukončenia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr repeat.for="zaznam of evidenciaZamestnanca">
+                        <td>${ zaznam.pozicia.nazov  }</td>
+                        <td>${ zaznam.datumNastupu | dateFormat }</td>
+                        <td>${ zaznam.datumUkoncenia | dateFormat  }</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            </div>
-            <div class="form-group col-lg-12">
-                <label for="plat" class="col-lg-1 col-form-label">Plat</label>
-                <div class="col-lg-3">
-                    <input id="plat" type="text" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" class="form-control" 
-                           value.bind="evidenciaZamestnancaZaznam.plat & validate:evidenciaZamestnancaZaznamValidationRules">
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <button type="button" class="btn btn-success pull-right" if.bind="editable === 'true'" click.delegate="Save(zamestnanec, evidenciaZamestnancaZaznam)">Uložiť</button>
-            </div>
-        </fieldset>
-        <hr style="border-top: dotted 1px;" />
-        <h3>Prehľad pozícií zamestnanca</h3>
-        <table if.bind="evidenciaZamestnanca" class="table">
-            <thead>
-                <tr>
-                    <th>Pozícia</th>
-                    <th>Dátum nástupu</th>
-                    <th>Dátum ukončenia</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr repeat.for="zaznam of evidenciaZamestnanca">
-                    <td>${ zaznam.pozicia.nazov  }</td>
-                    <td>${ zaznam.datumNastupu | dateFormat }</td>
-                    <td>${ zaznam.datumUkoncenia | dateFormat  }</td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
+        </form>
 </template>
