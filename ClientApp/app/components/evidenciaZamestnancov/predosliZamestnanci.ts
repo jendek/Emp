@@ -8,7 +8,7 @@ import { Prompt } from '../modal/modal';
 @autoinject
 export class PredchadzajuciZamestnanciClient {
 
-    public evidenciaZamestnancov: any;
+    private evidenciaZamestnancov: any;
 
     constructor(
         private network: Network,
@@ -29,7 +29,7 @@ export class PredchadzajuciZamestnanciClient {
         this.router.navigateToRoute('zamestnanecInfo', { zamestnanecID: id, editable: false });
     }
 
-    public deleteZamestnanec(evidenciaZamestnancaZaznam: any): void {
+    private deleteZamestnanec(evidenciaZamestnancaZaznam: any): void {
         this.dialogService.open({ viewModel: Prompt, model: 'Natrvalo zmazať zamestnanca?', lock: true }).whenClosed(response => {
             if (!response.wasCancelled) { } else {
                 let request = { method: "delete" };

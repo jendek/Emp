@@ -9,7 +9,6 @@ import * as moment from 'moment';
 @autoinject
 export class AktualniZamestnanciClient {
 
-    private baseUrl: string;
     public message: string;
     public evidenciaZamestnancov: any;
 
@@ -17,7 +16,7 @@ export class AktualniZamestnanciClient {
         private network: Network,
         private router: Router,
         private dialogService: DialogService,
-        baseUrl?: string) {
+        private baseUrl?: string) {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
     }
 

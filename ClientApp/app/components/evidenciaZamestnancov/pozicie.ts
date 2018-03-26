@@ -4,6 +4,7 @@ import { Network, NetworkResponse } from '../../network';
 import { BootstrapFormRenderer } from '../../bootstrap-form-renderer';
 import { ValidationControllerFactory, ValidationController, ValidationRules, validateTrigger } from "aurelia-validation";
 import { bindable } from "aurelia-templating/dist/aurelia-templating";
+import { Pozicia } from '../models/Pozicia';
 
 @autoinject
 export class PozicieClient {
@@ -18,15 +19,6 @@ export class PozicieClient {
         private baseUrl?: string)
     {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:55622";
-        this.validationController = validationControllerFactory.createForCurrentScope();
-        this.validationController.validateTrigger = validateTrigger.blur;
-        this.validationController.addRenderer(new BootstrapFormRenderer());
-
-        this.poziciaValidationRules = ValidationRules
-            .ensure('nazov').required().withMessage("Povinný údaj")
-            .ensure('nazov').minLength(3).withMessage("Minimálne 3 znaky")
-            .on(Pozicia)
-            .rules;
     }
 
     async activate() {
@@ -34,9 +26,14 @@ export class PozicieClient {
         if (response.ok && response.hasData) {
             this.pozicie = response.data;
         }
+
+        this.validationController = this.validationControllerFactory.createForCurrentScope();
+        this.validationController.validateTrigger = validateTrigger.blur;
+        this.validationController.addRenderer(new BootstrapFormRenderer());
+        this.defineValidationRules();
 }
 
-    public addPozicia(pozicia: Pozicia): void {
+    private addPozicia(pozicia: Pozicia): void {
         this.validationController.validate({ object: pozicia, rules: this.poziciaValidationRules }).then(result => {
             if (result.valid) {
                 let request = {
@@ -53,7 +50,7 @@ export class PozicieClient {
         });
     }
 
-    public deletePozicia(id: any): void {
+    private deletePozicia(id: any): void {
         let request = {
             method: "delete"
         };
@@ -63,15 +60,14 @@ export class PozicieClient {
                 this.activate();
             });
     }
-}
 
-export class Pozicia {
-    poziciaID: number;
-    nazov: string;
-    vymazana: boolean;
-
-    constructor(data = {}) {
-        Object.assign(this, data);
+    private defineValidationRules(): void {
+        this.poziciaValidationRules = ValidationRules
+            .ensure('nazov').required().withMessage("Povinný údaj")
+            .ensure('nazov').minLength(3).withMessage("Minimálne 3 znaky")
+            .on(Pozicia)
+            .rules;
     }
-
 }
+
+

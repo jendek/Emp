@@ -11,6 +11,9 @@
     <None Remove="ClientApp\app\components\app\currency-format.ts" />
     <None Remove="ClientApp\app\components\currency-format.ts" />
     <None Remove="ClientApp\app\components\evidenciaZamestnancov\zamestnanecInfo.ts" />
+    <None Remove="ClientApp\app\components\models\EvidenciaZamestnancaZaznam.ts" />
+    <None Remove="ClientApp\app\components\models\Pozicia.ts" />
+    <None Remove="ClientApp\app\components\models\Zamestnanec.ts" />
     <None Remove="ClientApp\app\date-format.ts" />
     <None Remove="ClientApp\app\datepicker-format.ts" />
     <None Remove="ClientApp\app\components\modal\modal.ts" />
@@ -30,6 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\models\EvidenciaZamestnancaZaznam.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\models\Pozicia.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\models\Zamestnanec.ts" />
     <TypeScriptCompile Include="ClientApp\app\currency-format.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\evidenciaZamestnancov\zamestnanecInfo.ts" />
     <TypeScriptCompile Include="ClientApp\app\datepicker-format.ts" />

@@ -39,6 +39,16 @@ namespace Emp.DAL
             new Zamestnanec{ Meno = "Jaro", Priezvisko="Zbojnik", Adresa="Polna 7, 841 03  Bratislava", DatumNarodenia=DateTime.Parse ("1999-02-03")},
             new Zamestnanec{ Meno = "Michal", Priezvisko="Kovac", Adresa="Tehelna 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1972-07-04")},
             new Zamestnanec{ Meno = "Fedor", Priezvisko="Fokac", Adresa="Betliarska 5, 821 06  Bratislava", DatumNarodenia=DateTime.Parse ("1982-10-01")},
+            new Zamestnanec{ Meno = "Eva", Priezvisko="Letna", Adresa="Rustaveliho 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1972-07-04")},
+            new Zamestnanec{ Meno = "Lenka", Priezvisko="Zimna", Adresa="Plickova 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1980-05-04")},
+            new Zamestnanec{ Meno = "Peter", Priezvisko="Jarny", Adresa="Rakuska 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1982-01-04")},
+            new Zamestnanec{ Meno = "Juraj", Priezvisko="Zachar", Adresa="Bratislavska 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1992-02-04")},
+            new Zamestnanec{ Meno = "Ivana", Priezvisko="Biela", Adresa="Pohranicna 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1962-03-04")},
+            new Zamestnanec{ Meno = "Lucia", Priezvisko="Cerna", Adresa="Cierna 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1973-04-04")},
+            new Zamestnanec{ Meno = "Eleanor", Priezvisko="Bleda", Adresa="Horna 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1942-01-04")},
+            new Zamestnanec{ Meno = "Pavla", Priezvisko="Tmava", Adresa="Dolna 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1977-02-04")},
+            new Zamestnanec{ Meno = "Petra", Priezvisko="Zbojna", Adresa="Lava 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1978-05-04")},
+            new Zamestnanec{ Meno = "Jezi", Priezvisko="Baba", Adresa="Prava 3, 821 04  Bratislava", DatumNarodenia=DateTime.Parse ("1974-04-04")},
             };
             foreach (Zamestnanec z in zamestnanci)
             {
@@ -57,7 +67,26 @@ namespace Emp.DAL
             new EvidenciaZamestnanca{ZamestnanecID=5, PoziciaID = 3, DatumNastupu=DateTime.Parse ("2016-02-03"), DatumUkoncenia=DateTime.Parse ("2017-10-10"), Plat=2500.50f},
             new EvidenciaZamestnanca{ZamestnanecID=6, PoziciaID = 4, DatumNastupu=DateTime.Parse ("2018-02-01"), DatumUkoncenia=null, Plat=2800.50f},
             new EvidenciaZamestnanca{ZamestnanecID=7, PoziciaID = 5, DatumNastupu=DateTime.Parse ("2017-12-03"), DatumUkoncenia=null, Plat=2200.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=8, PoziciaID = 1, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=DateTime.Parse ("2015-12-03"), Plat=600.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=8, PoziciaID = 2, DatumNastupu=DateTime.Parse ("2015-12-03"), DatumUkoncenia=DateTime.Parse ("2016-12-03"), Plat=700.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=9, PoziciaID = 2, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=DateTime.Parse ("2015-12-03"), Plat=700.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=9, PoziciaID = 3, DatumNastupu=DateTime.Parse ("2015-12-03"), DatumUkoncenia=DateTime.Parse ("2016-12-03"), Plat=800.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=9, PoziciaID = 4, DatumNastupu=DateTime.Parse ("2016-12-03"), DatumUkoncenia=null, Plat=900.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=10, PoziciaID = 2, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=DateTime.Parse ("2015-12-03"), Plat=500.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=10, PoziciaID = 3, DatumNastupu=DateTime.Parse ("2015-12-03"), DatumUkoncenia=DateTime.Parse ("2016-12-03"), Plat=800.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=10, PoziciaID = 4, DatumNastupu=DateTime.Parse ("2016-12-03"), DatumUkoncenia=null, Plat=1000.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=11, PoziciaID = 5, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=DateTime.Parse ("2015-12-03"), Plat=5000.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=11, PoziciaID = 4, DatumNastupu=DateTime.Parse ("2015-12-03"), DatumUkoncenia=null, Plat=1700.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=12, PoziciaID = 3, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=DateTime.Parse ("2015-12-03"), Plat=700.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=13, PoziciaID = 2, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=DateTime.Parse ("2015-12-03"), Plat=400.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=14, PoziciaID = 1, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=null, Plat=755.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=15, PoziciaID = 2, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=null, Plat=544.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=16, PoziciaID = 3, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=DateTime.Parse ("2015-12-03"), Plat=600.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=16, PoziciaID = 4, DatumNastupu=DateTime.Parse ("2015-12-03"), DatumUkoncenia=DateTime.Parse ("2016-12-03"), Plat=500.50f},
+            new EvidenciaZamestnanca{ZamestnanecID=16, PoziciaID = 5, DatumNastupu=DateTime.Parse ("2016-12-03"), DatumUkoncenia=null, Plat=50.10f},
+            new EvidenciaZamestnanca{ZamestnanecID=17, PoziciaID = 1, DatumNastupu=DateTime.Parse ("2014-12-03"), DatumUkoncenia=null, Plat=850f},
             };
+
             foreach (EvidenciaZamestnanca e in evidenciaZamestnanca)
             {
                 context.EvidenciaZamestnancov.Add(e);

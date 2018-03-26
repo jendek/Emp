@@ -2,9 +2,6 @@
 using Emp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.KeyVault.Models;
-using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
 
 namespace Emp.Controllers
 {

@@ -50,10 +50,6 @@ namespace Emp.Controllers
             _zamestnanecRepository.Save();
 
             return Ok(newZamestnanec);
-            //return new OkObjectResult(zamestnanecID);
-
-            //Returns a 201 response. HTTP 201 is the standard response for an HTTP POST method that creates a new resource on the server.
-            //return CreatedAtRoute("GetTodo", new { id = item.Id }, item);
         }
     }
 }

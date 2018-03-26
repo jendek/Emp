@@ -1,11 +1,13 @@
-﻿import { autoinject, transient } from 'aurelia-framework';
+﻿import * as moment from 'moment';
+import { autoinject, transient } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { Router } from 'aurelia-router';
 import { Network, NetworkResponse } from '../../network';
-import { PozicieClient, Pozicia } from './pozicie';
 import { ValidationControllerFactory, ValidationController, ValidationRules, validateTrigger } from "aurelia-validation";
-import * as moment from 'moment';
 import { BootstrapFormRenderer } from "../../bootstrap-form-renderer";
+import { Pozicia } from '../models/Pozicia';
+import { Zamestnanec } from '../models/Zamestnanec';
+import { EvidenciaZamestnancaZaznam } from '../models/EvidenciaZamestnancaZaznam';
 
 @autoinject
 export class ZamestnanecInfoClient {
@@ -42,8 +44,6 @@ export class ZamestnanecInfoClient {
             this.evidenciaZamestnancaZaznam.zamestnanec = this.zamestnanec;
             this.evidenciaZamestnancaZaznam.zamestnanec.datumNarodenia = moment().format('L').toString();
             this.evidenciaZamestnancaZaznam.datumNastupu = moment().format('L').toString();
-            console.log(this.evidenciaZamestnancaZaznam);
-            console.log(this.evidenciaZamestnancaZaznam.toString());
         }
 
         this.validationController = this.validationControllerFactory.createForCurrentScope();
@@ -52,26 +52,22 @@ export class ZamestnanecInfoClient {
         this.defineValidationRules();
     }
 
-    public Save(zamestnanec: Zamestnanec, evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
+    public save(zamestnanec: Zamestnanec, evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
         this.validationController.validate()
             .then(result => {
-                console.log(result.valid);
                 if (result.valid) {
                     if (evidenciaZamestnancaZaznam.zamestnanec.zamestnanecID == null) {
-                        this.AddEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
+                        this.addEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
                     } else {
-                        console.log("UPDATE");
-                        this.UpdateEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
+                        this.updateEvidenciaZamestnanca(evidenciaZamestnancaZaznam);
                     }
                 }
             });        
     }
 
-    public UpdateEvidenciaZamestnanca(evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
+    public updateEvidenciaZamestnanca(evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
 
         let request = { method: "put", body: json(evidenciaZamestnancaZaznam)};
-
-        console.log(request.body.toString())
 
         this.network.request(this.baseUrl + "/api/EvidenciaZamestnanca/", request)
             .then(response => {
@@ -79,11 +75,9 @@ export class ZamestnanecInfoClient {
             });
     }
 
-    public AddEvidenciaZamestnanca(evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
+    public addEvidenciaZamestnanca(evidenciaZamestnancaZaznam: EvidenciaZamestnancaZaznam): void {
 
         let request = { method: "post", body: json(evidenciaZamestnancaZaznam) };
-
-        console.log(request.body.toString())
 
         this.network.request(this.baseUrl + "/api/EvidenciaZamestnanca/", request)
             .then(response => {
@@ -99,10 +93,6 @@ export class ZamestnanecInfoClient {
             this.pozicie = response.data;
         }
     }
-
-    private DropdownChanged(id: number) {
-        this.evidenciaZamestnancaZaznam.poziciaID = id;
-    }   
 
     private defineValidationRules() {
         ValidationRules.customRule(
@@ -152,31 +142,3 @@ export class ZamestnanecInfoClient {
         this.evidenciaZamestnancaZaznam.plat = parseFloat(this.evidenciaZamestnancaZaznam.plat).toFixed(2);
     }
  }
-
-export class Zamestnanec {
-    zamestnanecID: number;
-    meno: string = '';
-    priezvisko: string = '';
-    adresa: string = '';
-    datumNarodenia: any;
-
-    constructor(data = {}) {
-        Object.assign(this, data);
-    }
-}
-
-export class EvidenciaZamestnancaZaznam {
-    evidenciaZamestnancaID: number;
-    zamestnanecID: number;
-    poziciaID: number;
-    datumNastupu: string;
-    //Datum ukoncenia sa edituje pomocou zmazania zamestnanca zo zoznamu aktualnych zamestnancov
-    //DatumUkoncenia: Date;
-    plat: string;
-    zamestnanec: Zamestnanec;
-    //pozicia: Pozicia;
-
-    constructor(data = {}) {
-        Object.assign(this, data);
-    }
-}
